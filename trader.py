@@ -1,13 +1,16 @@
 import requests
 import json
 import yaml
+import os
 
 class Trader:
 
     def __init__(self):
-        f = open('/Users/Zach/Desktop/config.json')
-        data = json.load(f)
         
+        yamlfile = 'C:\\Users\\iCan Student\\OneDrive - Riverside School Board\\Desktop\\config.yaml'
+        with open(yamlfile, 'r') as file:
+           data = yaml.safe_load(file)
+
         self.accountid = data['accountid']
         self.stream_api = data['stream']
         self.instruments = data['instruments']
@@ -16,10 +19,12 @@ class Trader:
         self.params = {'instruments': self.instruments} 
         self.bearer = f"Bearer {data['key']}"
         self.headers = {'Authorization': self.bearer}
+        print(self.accountid)
 
     def main(self):
         # self.stream()
-        self.orders()
+        # self.orders()
+        ...
 
     def stream(self):
         
