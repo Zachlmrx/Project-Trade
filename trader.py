@@ -5,18 +5,8 @@ import yaml
 class Trader:
 
     def __init__(self):
-        # Convert JSON to YAML
-        json_file = "/Users/Zach/Desktop/config.json"
-        yaml_file = "/Users/Zach/Desktop/config.yaml"
-
-        #load JSON and write YAMl
-        with open(json_file, "r") as json_f:
-            data = json.load(json_f)
-            with open(yaml_file, "w") as yaml_f:
-                yaml.dump(data, yaml_f, default_flow_style=False)
-        #read the YAML file
-        with open(yaml_file, "r") as yaml_f:
-            data = yaml.safe_load(yaml.f)
+        f = open('/Users/Zach/Desktop/config.json')
+        data = json.load(f)
         
         self.accountid = data['accountid']
         self.stream_api = data['stream']
